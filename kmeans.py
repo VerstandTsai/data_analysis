@@ -1,18 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def gen_cluster(size, mean, stdev):
-    return np.random.randn(size, 2) * stdev + mean
-
-def gen_data(num_clusters, x_range, y_range, cluster_size, spread):
-    data = np.array([])
-    for _ in range(num_clusters):
-        x = np.random.uniform(x_range[0], x_range[1])
-        y = np.random.uniform(y_range[0], y_range[1])
-        mean = np.array([x, y])
-        cluster = gen_cluster(cluster_size, mean, spread)
-        data = cluster if data.size == 0 else np.append(data, cluster, axis=0)
-    return data
+import datagen
 
 def forgy(data, k):
     return data[np.random.choice(data.shape[0], k, replace=False), :]
@@ -73,6 +62,6 @@ def kmeans(data, k, num_iters, animate=False):
 
 if __name__ == '__main__':
     k = 7
-    data = gen_data(num_clusters=k, x_range=[0, 10], y_range=[0, 10], cluster_size=50, spread=0.3)
+    data = datagen.gen_clusters(num_clusters=k, x_range=[0, 10], y_range=[0, 10], cluster_size=50, spread=0.3)
     centroids = kmeans(data, k, 20, animate=True)
 
