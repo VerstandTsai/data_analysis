@@ -62,6 +62,6 @@ def kmeans(data, k, num_iters, animate=False):
 
 if __name__ == '__main__':
     k = 7
-    data = datagen.gen_clusters(num_clusters=k, x_range=[0, 10], y_range=[0, 10], cluster_size=50, spread=0.3)
+    data = datagen.clusters(num_clusters=k, x_range=[0, 10], y_range=[0, 10], cluster_size=50, spread=0.3)
     centroids = kmeans(data, k, 20, animate=True)
 

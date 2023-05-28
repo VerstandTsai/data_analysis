@@ -26,7 +26,7 @@ def svm(data, labels, lamb, lr, num_iters):
 
 if __name__ == '__main__':
     cluster_size = 50
-    data = datagen.gen_clusters(2, [-1, 1], [-1, 1], cluster_size, 0.1)
+    data = datagen.clusters(2, [-1, 1], [-1, 1], cluster_size, 0.1)
     labels = np.append(np.ones(cluster_size), -np.ones(cluster_size))
 
     x = np.linspace(-1, 1, 100)

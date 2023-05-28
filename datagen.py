@@ -1,6 +1,11 @@
 import numpy as np
 
-def gen_clusters(num_clusters, x_range, y_range, cluster_size, spread):
+def linear(num_points, slope, intercept):
+    x = np.random.randn(num_points)
+    y = (slope * x + intercept) * np.random.randn(num_points)
+    return np.array([x, y]).T
+
+def clusters(num_clusters, x_range, y_range, cluster_size, spread):
     data = np.array([])
     for _ in range(num_clusters):
         x = np.random.uniform(x_range[0], x_range[1])
